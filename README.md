@@ -110,9 +110,9 @@ Body (JSON):
 
 ```json
 {
-  "organization_name": "acme",
-  "email": "admin@acme.com",
-  "password": "secret123"
+  "organization_name": "SRMRAMAPURAM",
+  "email": "akash@srm.com",
+  "password": "verysafepasswordhahaha"
 }
 ```
 
