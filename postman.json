@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "OrgService",
+    "_postman_id": "org-service-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Org",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organization_name\": \"acme\",\n  \"email\": \"admin@acme.com\",\n  \"password\": \"secret123\"\n}"
+        },
+        "url": { "raw": "http://localhost:8000/org/create", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["org","create"] }
+      }
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@acme.com\",\n  \"password\": \"secret123\"\n}"
+        },
+        "url": { "raw": "http://localhost:8000/admin/login", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["admin","login"] }
+      }
+    },
+    {
+      "name": "Get Org",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8000/org/get?organization_name=acme", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["org","get"], "query": [{ "key": "organization_name", "value": "acme" }] }
+      }
+    },
+    {
+      "name": "Rename Org",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organization_name\": \"acme\",\n  \"new_organization_name\": \"acme_corp\"\n}"
+        },
+        "url": { "raw": "http://localhost:8000/org/update", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["org","update"] }
+      }
+    },
+    {
+      "name": "Delete Org",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"organization_name\": \"acme_corp\"\n}"
+        },
+        "url": { "raw": "http://localhost:8000/org/delete", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["org","delete"] }
+      }
+    }
+  ]
+}
